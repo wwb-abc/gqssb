@@ -1,82 +1,65 @@
-# This file is used to ignore files which are generated
-# ----------------------------------------------------------------------------
+# ============================================================================
+#  Qt 工程专用忽略规则
+#  放在 .pro 所在目录，规则只作用于本目录及子目录
+# ============================================================================
 
-*~
+# ---- Qt Creator / 编辑器 ----
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
 *.autosave
-*.a
-*.core
-*.moc
-*.o
-*.obj
-*.orig
-*.rej
-*.so
-*.so.*
-*_pch.h.cpp
-*_resource.rc
-*.qm
-.#*
-*.*#
-core
-!core/
-tags
-.DS_Store
-.directory
-*.debug
-Makefile*
-*.prl
-*.app
-moc_*.cpp
-ui_*.h
-qrc_*.cpp
-Thumbs.db
-*.res
-*.rc
-/.qmake.cache
-/.qmake.stash
 
-# qtcreator generated files
-*.pro.user*
-*.qbs.user*
-CMakeLists.txt.user*
-
-# xemacs temporary files
-*.flc
-
-# Vim temporary files
-.*.swp
-
-# Visual Studio generated files
-*.ib_pdb_index
-*.idb
-*.ilk
-*.pdb
-*.sln
-*.suo
-*.vcproj
-*vcproj.*.*.user
-*.ncb
-*.sdf
-*.opensdf
-*.vcxproj
-*vcxproj.*
-
-# MinGW generated files
+# ---- 构建产物 ----
+# 前导 / 表示"只匹配本目录下的"，正好覆盖这个 .pro 同级和子级的 build/
+/build/
+build/
+Makefile
+Makefile.*
 *.Debug
 *.Release
 
-# Python byte code
-*.pyc
+# ---- Qt 生成文件 ----
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+*.moc
+.qmake.stash
+.qmake.cache
+*.qm
 
-# Binaries
-# --------
+# ---- 编译中间产物 ----
+*.o
+*.obj
+*.a
+*.lib
 *.dll
 *.exe
+*.so
+*.so.*
+*.d
+*.pdb
+*.ilk
+*.idb
+*.exp
+*.res
+*.rc
+*_resource.rc
+*_pch.h.cpp
 
-# Directories with generated files
-.moc/
-.obj/
-.pch/
-.rcc/
-.uic/
-/build*/
+# ---- 调试/工具缓存（Qt Creator 的 clangd 索引，动辄几百个文件）----
+.qtc_clangd/
+.cache/
+compile_commands.json
+.clangd/
+
+# ---- 本项目运行时数据 ----
+data/
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+.env
+logs/
